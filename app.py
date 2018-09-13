@@ -16,7 +16,8 @@ DATABASE = {
 """
 sid = cx_Oracle.makedsn(config.DATABASE['host'], config.DATABASE['port'], sid=config.DATABASE['database'])
 
-cstr = 'oracle://{user}:{password}@{sid}'.format(
+cstr = '{drivername}://{user}:{password}@{sid}'.format(
+    drivername = config.DATABASE['drivername'],
     user=config.DATABASE['username'],
     password=config.DATABASE['password'],
     sid=sid
